@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feliz 16 Valery 💖</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to bottom right, #ff9a9e, #fad0c4);
+      color: #fff;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3em;
+      margin-top: 80px;
+      animation: pop 1s ease-out forwards;
+    }
+
+    p {
+      font-size: 1.3em;
+      margin-top: 20px;
+      animation: fade 2s ease-in-out;
+    }
+
+    .hearts {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fade {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .boton {
+      background: #fff;
+      color: #ff6f91;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 1em;
+      margin-top: 40px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .boton:hover {
+      transform: scale(1.1);
+      background: #ffe6eb;
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts" id="corazones"></div>
+
+  <h1>Feliz 16, Valery 🎂🎈</h1>
+  <p>Hoy es un día muy especiaaal 💫<br>Ya que cumples 16 añitos 😁</p>
+
+  <button class="boton" onclick="tirarCorazones()"> Haz Click Princesa💖</button>
+
+  <script>
+    function tirarCorazones() {
+      const contenedor = document.getElementById("corazones");
+      for (let i = 0; i < 40; i++) {
+        let corazon = document.createElement("div");
+        corazon.innerHTML = "💖";
+        corazon.style.position = "absolute";
+        corazon.style.left = Math.random() * 100 + "vw";
+        corazon.style.top = Math.random() * 100 + "vh";
+        corazon.style.fontSize = (Math.random() * 30 + 20) + "px";
+        corazon.style.animation = "fall 3s ease-out forwards";
+        contenedor.appendChild(corazon);
+
+        setTimeout(() => corazon.remove(), 3000);
+      }
+    }
+
+    const style = document.createElement('style');
+    style.innerHTML = `
+      @keyframes fall {
+        0% { transform: translateY(0); opacity: 1; }
+        100% { transform: translateY(100vh); opacity: 0; }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>
